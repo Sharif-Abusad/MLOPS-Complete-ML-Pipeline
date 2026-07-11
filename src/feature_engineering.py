@@ -27,8 +27,6 @@ logger.addHandler(console_handler)
 logger.addHandler(file_handler)
 
 
-
-
 def load_data(file_path: str) -> pd.DataFrame:
     """Load data from a CSV file"""
     try: 

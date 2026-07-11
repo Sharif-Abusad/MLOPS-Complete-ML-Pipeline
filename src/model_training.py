@@ -28,13 +28,11 @@ logger.addHandler(console_handler)
 logger.addHandler(file_handler)
 
 
-
-
 def load_data(file_path: str) -> pd.DataFrame:
     """Load data from a CSV file"""
     try: 
         df = pd.read_csv(file_path)
-        logger.debug("Data loaded from %s  with shape", file_path, df.shape)
+        logger.debug("Data loaded from %s  with shape %s", file_path, df.shape)
         return df
     
     except pd.errors.ParserError as e:
@@ -104,7 +102,7 @@ def save_model(model, file_path: str) -> None:
 
 def main():
     try:
-        params = {'n_estimators': 100, 'random_state': 2}
+        params = {'n_estimators': 25, 'random_state': 2}
         train_data = load_data('./data/processed/train_tfidf.csv')
 
         X_train = train_data.iloc[:, :-1].values
